@@ -1,5 +1,5 @@
 apiVersion: route.openshift.io/v1
-kind: Route
+kind: Ingress
 metadata:
   labels:
     app.kubernetes.io/component: server
