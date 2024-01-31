@@ -7,13 +7,14 @@ metadata:
     ingressclass.kubernetes.io/is-default-class: "true"
   name: nginx-route-edu18
 spec:
-  host: nginx
-  port:
-    targetPort: http
-  tls:
-    termination: edge
-  to:
-    kind: Service
-    name: mynginx
-    weight: 100
-  wildcardPolicy: None
+  rules:
+  - host: argocd.211.43.12.162.nip.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 80
