@@ -1,8 +1,10 @@
 apiVersion: route.openshift.io/v1
 kind: Ingress
 metadata:
-  labels:
-    app.kubernetes.io/component: server
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    ingress.kubernetes.io/rewrite-target: /
+    ingressclass.kubernetes.io/is-default-class: "true"
   name: nginx-route-edu18
 spec:
   host: nginx
